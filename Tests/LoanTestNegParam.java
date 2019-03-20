@@ -20,7 +20,7 @@ public class LoanTestNegParam {
 
     }
 
-    @Parameterized.Parameters(name = "{index}: checkRate(IllegalArgumentExeption)={0}")
+    @Parameterized.Parameters(name = "{index}: checkRate(IllegalArgumentException)={0}")
     public static Collection<Object[]> getTestParameters() {
         return Arrays.asList(new Object[][]{
                 {9999.99, 6},
@@ -31,11 +31,15 @@ public class LoanTestNegParam {
                 {'X', 1},
                 {null,2},
                 {599.99,null},
+                {5000.01,3},
+                {5000.99,4}, // 5 out of 10 tests run successfully
         });
     }
 
     @Test (expected = IllegalArgumentException.class)
     public void testRate() {
         Loan loan = new Loan(amount, period);
+
     }
+
 }
