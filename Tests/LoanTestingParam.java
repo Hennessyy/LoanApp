@@ -31,6 +31,8 @@ public class LoanTestingParam {
                 {6, 5000, 4},
                 {8, 9999.99, 3},
                 {6, 500.01, 5},
+
+
         });
     }
 
