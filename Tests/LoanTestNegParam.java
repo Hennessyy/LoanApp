@@ -23,16 +23,18 @@ public class LoanTestNegParam {
     @Parameterized.Parameters(name = "{index}: checkRate(IllegalArgumentException)={0}")
     public static Collection<Object[]> getTestParameters() {
         return Arrays.asList(new Object[][]{
-                {9999.99, 6},
-                {500.01, 0},
-                {499.99, 1},
-                {10000.01, 5},
-                {6000, 'b'},
-                {'X', 1},
-                {null,2},
-                {599.99,null},
-                {5000.01,3},
-                {5000.99,4}, // 5 out of 10 tests run successfully
+                {9999.99, 6}, //Out of bounds should pass but doesn't. - FAIL
+                {500.01, 0},    //Out of bounds should pass but doesn't. - FAIL
+                {499.99, 1}, //Correct - Pass
+                {10000.01, 5}, //Correct - Pass
+                {6000, 'b'}, //Character in period section should pass but doesn't so according to the code it's valid! - FAIL
+                {'X', 1}, //Correct - Pass
+                {null,2}, //Says java.lang.IllegalArguementException but doesn't pass the test. - FAIL
+                {599.99,null}, //Says java.lang.IllegalArguementException but doesn't pass the test. - FAIL
+                {5000.01,3}, // Correct - Pass
+                {5000.99,4}, //Correct - Pass
+
+                // 5 out of 10 tests run successfully
         });
     }
 

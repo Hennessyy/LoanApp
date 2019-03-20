@@ -23,15 +23,15 @@ public class LoanTestingParam {
     @Parameterized.Parameters(name = "{index}: checkRate({1})={0}")
     public static Collection<Object[]> getTestParameters() {
         return Arrays.asList(new Object[][]{
-                {5, 10000, 5},
-                {10, 500, 1},
-                {5, 5001.01, 4},
-                {8, 5001, 2},
-                {10, 4999.99, 3},
-                {6, 5000, 4},
-                {8, 9999.99, 3},
-                {6, 500.01, 5},
 
+                {5, 10000, 5}, //Pass - Correct
+                {10, 500, 1}, //Pass - Correct
+                {5, 5001.01, 4}, //Pass - Correct
+                {8, 5001, 2}, //Pass - Correct
+                {10, 4999.99, 3}, //Pass - Correct
+                {6, 5000, 4}, //Pass - Correct
+                {8, 9999.99, 3}, //Pass - Correct
+                {6, 500.01, 5}, // Pass - Correct
 
         });
     }
