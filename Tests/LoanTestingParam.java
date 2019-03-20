@@ -15,9 +15,10 @@ public class LoanTestingParam {
     private int period;
 
     public LoanTestingParam(int expected, double amount, int period) {
+        this.expected = expected;
         this.amount = amount;
         this.period = period;
-        this.expected = expected;
+
     }
 
     @Parameterized.Parameters(name = "{index}: checkRate({1})={0}")
