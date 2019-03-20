@@ -30,11 +30,11 @@ public class CustomerTest {
         PowerMock.expectNew(Loan.class, (double)5000,5).andReturn(mockLoan);
 
         mockCust.takeoutloan();
-        expect(mockCust.getMonthlypayments()).andReturn(94.36);
+        expect(mockCust.getMonthlypayments()).andReturn(96.66);
 
 
-        replay(mockCust,Customer.class);
-        replay(mockLoan, Loan.class);
+        PowerMock.replay(mockCust,Customer.class);
+        PowerMock.replay(mockLoan, Loan.class);
 
 
         double expected = customer.getMonthlypayments();
@@ -43,6 +43,6 @@ public class CustomerTest {
         assertEquals(expected, result, 0.01);
 
         verify(mockLoan, Customer.class);
-        ;
+
     }
 }
